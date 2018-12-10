@@ -2,11 +2,12 @@
 \usepackage[frenchb]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{graphics}
+\usepackage{graphicx}
 \title{Rapport Comsol}
 \author{Dubois Benoît et Vigné Adrien}
 \date{10 Décembre 2018}
 \usepackage{multicol}
+\usepackage{caption}
 
 \newenvironment{Figure}
   {\par\medskip\noindent\minipage{\linewidth}}
@@ -20,13 +21,22 @@
     Abstract
 \end{abstract}
 
-\begin{multicols}{2}
+\twocolumn
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\linewidth]{Logo_ENS.png}
+    \caption{Caption}
+    \label{fig:my_label}
+\end{figure}
+
 
 \section*{Introduction}
 
 \section{Théorie}
-On s'intéresse ici à une microbalance à quartz donc à la résonance du quartz. On peut modéliser un quartz comme un ensemble série de résistance,bobine,condensateur et parallèle d'un condensateur (figure ) . On trouve à partir de ce modèle et des paramètres géométriques du cristal de quartz le lien entre la résonance et la masse du cristal notamment.
+On s'intéresse ici à une microbalance à quartz donc à la résonance du quartz. On peut modéliser un quartz comme un ensemble série de résistance, bobine, condensateur et parallèle d'un condensateur (figure ) . On trouve à partir de ce modèle et des paramètres géométriques du cristal de quartz le lien entre la résonance et la masse du cristal notamment.
 $$  $$
+
 
 Dans cette étude de microbalance on considère que la masse rajoutée fais partie du cristal et influence donc directement sur la masse du cristal et donc sur la fréquence de résonance.
 
@@ -35,32 +45,35 @@ Dans cette étude de microbalance on considère que la masse rajoutée fais part
 
 \section{Modélisation}
 
-Afin de prévoir la réponse de notre microbalance nous l'avons modélisé sous \textsc{Comsol}. Nous avons cherché l'influence du rayon et de l'épaisseur des couches d'or et de titane dans la fréquence de résonance de la microbalance. 
+Le logiciel \textsc{Comsol} va permettre de modéliser la réponse en fréquence de la microbalance en fonction du rayon et de l'épaisseur des couches d'or et de titane qui forment les électrodes de contacts.
+Le première paramètre recherché est la fréquence de résonance dans un cas simple. Afin de vérifier le comportement du modèle dans le logiciel. Les études suivantes portent sur l'influence du rayon des électrodes puis de leur épaisseurs.
+\subsection{Fréquence de résonance à la taille maximale}
+Afin de trouver la fréquence de résonance, la fréquence de sollicitations varie entre ... puis le pas est réduit afin d'améliorer la précision.
 
-On lance alors deux études paramétriques en faisant varier le rayon puis l'épaisseur. On prend un pas de $50 \mu m$ entre $400 \mu m$ et le rayon du wafer de silicium. Pour l'épaisseur on fait varier les épaisseurs d'or et de titane de sorte que la somme de leurs épaisseurs fassent toujours $1 \mu m$.
-
+La fréquence de résonance ainsi trouvé est de $5.11 MHz$
+%Commmentaires
 \subsection{Variation de rayon}
 
-\begin{figure}
-    \centering
-    \includegraphics[width=\linewidth]{Quartz_crystal_equivalent.png}
-    \captionof{Caption}
-    \label{fig:my_label}
-\end{figure}
+Le pas de simulation est fixé à $50 \mu m$ entre $400 \mu m$ et le rayon du wafer de silicium. La fréquence de sollicitation est fixée entre $5.0$ et $5.2 MHz$. %(à revérifier)
+Le courbes montrent que la meilleure résonance est atteinte pour $R=n \mu m$
+
+
 
 
 
 \subsection{Variation d'épaisseur}
 
+Les épaisseurs d'or et de titane varient de sorte que la somme de leurs épaisseurs fassent toujours $100 \mu m$.
 
 
 
 \section{Expériences}
+% resine centrifuge a 4000rpm
 
 \section{Résultats}
 
 \section{Conclusion}
 
 
-\end{multicols}
+
 \end{document}
